@@ -1,0 +1,94 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+import rendimiento from "assets/rendimiento.png";
+import estrategias from "assets/estrategias.png";
+import soporte from "assets/soporte.png";
+import diversificacion from "assets/diversificacion.png";
+import Cta from "@components/cta.astro";
+
+import { getLangFromUrl,useTranslation } from "i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const features = [
+  {
+    title: "feat.subtitle1",
+    description:
+      "feat.description1",
+    image: rendimiento,
+  },
+  {
+    title: "feat.subtitle2",
+    description:
+      "feat.description2",
+    image: soporte,
+  },
+  {
+    title: "feat.subtitle3",
+    description:
+      "feat.description3",
+    image: estrategias,
+  },
+  {
+    title: "feat.subtitle4",
+    description:
+      "feat.description4",
+    image: diversificacion,
+  }
+];
+---
+
+<div class="min-h-screen relative flex flex-col">   
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
+    {
+      features.map((item, index) => (
+        <div
+          class={`flex flex-col gap-8 items-center text-center p-10 ${
+            index % 2 === 0 ? 'bg-[#222222]' : 'bg-[#0d2ca6]'
+          }`}
+        >
+          <div class="h-auto w-full flex justify-center items-center">
+            <Picture
+              src={item.image}
+              alt={item.title}
+              widths={[200, 400]}
+              sizes="(max-width: 280px) 100vw, 280px"
+              loading="eager"
+              class="h-32 w-32"
+            />
+          </div>
+          <div>
+            <p class="text-white mt-4 leading-relaxed">
+              {t(item.description as 'feat.description1')}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <Cta />
+
+  <div class="flex flex-col text-center text-[#0E1B4D] text-3xl mt-2">
+    <p>
+      {t('canRead')}
+    </p>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-[80px] w-[80px] mx-auto"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"
+      />
+    </svg>
+  </div>
+</div>

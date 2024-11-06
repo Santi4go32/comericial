@@ -1,0 +1,106 @@
+---
+// @ts-ignore
+import Link from "./ui/link.astro";
+import { Picture } from "astro:assets";
+
+import { getLangFromUrl,useTranslation } from "i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const portfolios = [
+  {
+    title: "Serenity",
+    price: "port.price1",
+    description:
+      "port.description1",
+    benefits: [
+      "port.rent1",
+      "port.projection1",
+      "port.month1",
+      "port.risk1"
+    ],
+    path: "https://qqcapitalfund.com/portfolios/serenity/"
+  },
+  {
+    title: "Classic",
+    price: "port.price2",
+    description:
+      "port.description2",
+    benefits: [
+      "port.rent2",
+      "port.projection2",
+      "port.month2",
+      "port.risk2"
+    ],
+    path: "https://qqcapitalfund.com/portfolios/classic/"
+  },
+  {
+    title: "Grow",
+    price: "port.price3",
+    description:
+      "port.description3",
+    benefits: [
+      "port.rent3",
+      "port.projection3",
+      "port.month3",
+      "port.risk3"
+    ],
+    path: "https://qqcapitalfund.com/portfolios/grow/"
+  }
+];
+---
+
+<div id="portfolios-anchor" style="position: relative; top: -100px; visibility: hidden;"></div>
+<div class="min-h-screen relative flex flex-col">
+  <div id="portfolios" class="mt-[5%] flex justify-center items-center flex-col">
+    <h2 class="text-center text-4xl lg:text-5xl font-medium text-[#0E1B4D] lg:tracking-tight">
+      {t('port.title')}
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mt-20">
+    {portfolios.map((item, index) => (
+      <div class={`flex flex-col gap-4 p-8 max-w-xl mx-auto rounded-3xl text-white text-center ${index % 2 === 0 ? 'bg-[#0d2ca6]' : 'bg-[#222222]'}`}>
+        <h3 class="text-5xl">{item.title}</h3>
+        <p class="text-3xl">{t(item.price as 'port.price1')}</p>
+        <p class="mt-4 text-lg leading-relaxed">{t(item.description as 'port.description1')}</p>
+        
+        <ul class="mt-4">
+          {item.benefits.map((benefit) => (
+            <p class="text-md mt-2">{t(benefit as 'port.rent1')}</p>
+          ))}
+        </ul>
+        
+        <div class="mt-4 w-auto flex justify-center">
+            <Link
+              class="flex justify-center text-sm items-center border border-white text-white rounded-xl hover:bg-blue-950 w-auto"
+              href={item.path}
+            > {t('port.button')}
+            </Link>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="flex flex-col text-center text-[#0E1B4D] text-3xl mt-20">
+    <p>
+      {t('canRead')}
+    </p>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-[80px] w-[80px] mx-auto"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"
+      />
+    </svg>
+  </div>
+</div>
+
