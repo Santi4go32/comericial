@@ -1,0 +1,114 @@
+---
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Logo2 from "assets/logo2.png";
+import { Picture } from "astro:assets";
+import { getLangFromUrl,useTranslation } from "i18n/utils";
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/uploads/2024/07/Presentacion-Comercial-ingles.pdf" : "https://qqcapitalfund.com/wp-content/uploads/2024/07/Presentacion-Comercial-Espanol.pdf";
+
+const menuitems = [
+  {
+    title: "nav.bot",
+    path: "https://chat-ia-fund.vercel.app/",
+  },
+  {
+    title: "nav.calculator",
+    path: "https://qq-capital-fund---dashboard.web.app/multi-portfolio-calculator",
+  },
+  {
+    title: "nav.plans",
+    path: "#portfolios-anchor",
+  },
+  {
+    title: "nav.brochure",
+    path: downloadUrl,
+  }
+];
+---
+
+<div>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-4">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-lg">
+          <Picture
+            src={Logo2}
+            alt="Astronaut in the air"
+            widths={[300, 500, 700]}
+            sizes="(max-width: 30px) 30px, 30px"
+            loading="eager"
+            format="avif"
+            class="h-16 w-[70px] lg:w-[75px]"
+          />
+        </a>
+        <div class="block lg:hidden z-50 relative">
+          <MenuIcon class="w-6 h-6 text-white" />
+        </div>
+      </div>
+
+      <!-- center elements -->
+      <ul class="hidden lg:flex lg:w-full justify-center items-center gap-8">
+        {
+          menuitems.map((item, index) => (
+            <li>
+              <a
+                href={item.path}
+                rel="noopener noreferrer"
+                class="flex items-center text-white hover:bg-[#0E1B4D] rounded-full px-5 py-0.5">
+                <span class="text-sm lg:text-lg font-medium">{t(item.title as "nav.bot")}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <ul class="hidden lg:flex items-center justify-end gap-4">
+        <li>
+          <a
+            href="https://qq-capital-fund---dashboard.web.app/login"
+            class="flex items-center text-white hover:bg-[#0E1B4D] rounded-full px-5 py-0.5"
+            style="border: none; white-space: nowrap; text-decoration: none;"
+            target="_blank" data-path="/about-us" rel="noopener noreferrer">
+            <span class="text-sm lg:text-lg font-medium">{t('nav.register')}</span>
+          </a>
+        </li>
+      </ul>
+
+      <MenuItems class="hidden lg:hidden w-full flex-col items-center text-[#0E1B4D] mt-20 absolute z-50 p-2 rounded-xl border bg-white">
+        <ul class="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+          {
+            menuitems.map((item, index) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="flex items-center text-gray-600 hover:text-gray-900 px-5 py-0.5"
+                  style="background-color: #e1e1e1; border-radius: 20px; border: none;">
+                  <span class="text-sm lg:text-base">{t(item.title as "nav.bot")}</span>
+                </a>
+              </li>
+            ))
+          }
+          <li class="hidden lg:flex items-center gap-4">
+            <Link href="#registro" size="md" block class="floating-button px-7 py-0.1 bg-[#034bd9] rounded-full">{t('nav.register')}</Link>
+          </li>
+        </ul>
+        <div class="lg:hidden flex items-center mt-3 gap-4">
+          <Link href="#registro" size="md" block class="floating-button px-7 py-0.1 bg-[#034bd9] rounded-full">{t('nav.register')}</Link>
+        </div>
+      </MenuItems>
+    </Astronav>
+  </header>
+</div>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

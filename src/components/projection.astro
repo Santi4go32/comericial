@@ -1,0 +1,116 @@
+---
+// @ts-ignore
+import Link from "./ui/link.astro";
+import { Picture } from "astro:assets";
+
+import { getLangFromUrl,useTranslation } from "i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslation(lang);
+
+const portfolios = [
+  {
+    title: "Serenity",
+    price: "proj.totals",
+    future: "proj.sr.future",
+    invested: "proj.sr.invested",
+    profit: "proj.sr.profit",
+    compouding: "proj.compouding",
+    rows: [
+      { year: 1, initialCapital: "$5,000.00", profit: "$549.00", futureValue: "$5,549.00" },
+      { year: 2, initialCapital: "$5,549.00", profit: "$609.28", futureValue: "$6,158.28" },
+      { year: "", initialCapital: "", profit: "", futureValue: "(10.98%)" }
+    ]
+  },
+  {
+    title: "Classic",
+    price: "proj.totals",
+    future: "proj.cl.future",
+    invested: "proj.cl.invested",
+    profit: "proj.cl.profit",
+    compouding: "proj.compouding",
+    rows: [
+      { year: 1, initialCapital: "$10,000.00", profit: "$1,760.00", futureValue: "$11,760.00" },
+      { year: 2, initialCapital: "$11,760.00", profit: "$2,069.76", futureValue: "$13,829.76" },
+      { year: 3, initialCapital: "$13,829.76", profit: "$2,434.04", futureValue: "$16,263.80" },
+      { year: "", initialCapital: "", profit: "", futureValue: "(17.6%)" }
+    ]
+  },
+  {
+    title: "Grow",
+    price: "proj.totals",
+    future: "proj.gr.future",
+    invested: "proj.gr.invested",
+    profit: "proj.gr.profit",
+    compouding: "proj.compouding",
+    rows: [
+      { year: 1, initialCapital: "$20,000.00", profit: "$7,000.00", futureValue: "$27,000.00" },
+      { year: 2, initialCapital: "$27,000.00", profit: "$9,450.00", futureValue: "$36,450.00" },
+      { year: 3, initialCapital: "$36,450.00", profit: "$12,757.50", futureValue: "$49,207.50" },
+      { year: 4, initialCapital: "$49,207.50", profit: "$17,222.63", futureValue: "$66,430.13" },
+      { year: "", initialCapital: "", profit: "", futureValue: "(35%)" }
+    ]
+  },
+
+];
+---
+
+<div id="portfolios-anchor" style="position: relative; top: -100px; visibility: hidden;"></div>
+<div class="min-h-screen relative flex flex-col">
+  <div id="portfolios" class="mt-[5%] flex justify-center items-center flex-col">
+    <h2 class="text-center text-4xl lg:text-5xl font-medium text-[#0E1B4D] lg:tracking-tight">
+      {t('port.title')}
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mt-20">
+    {portfolios.map((item, index) => (
+      <div class={`flex flex-col gap-4 p-8 max-w-xl mx-auto rounded-3xl text-white text-center ${index % 2 === 0 ? 'bg-[#0d2ca6]' : 'bg-[#222222]'}`}>
+        <h3 class="text-5xl">{item.title}</h3>
+        <p class="text-3xl">{t(item.price as 'port.price1')}</p>
+        
+        <div class="flex space-x-[70px]">
+          <p class="whitespace-pre-line">{t(item.future as 'port.price1')}</p>
+          <p class="whitespace-pre-line">{t(item.invested as 'port.price1')}</p>
+        </div>
+
+        <div class="text-xl">
+          <p class="whitespace-pre-line">{t(item.profit as 'port.price1')}</p>
+        </div>
+
+        <p class="text-xl">{t('proj.compouding' as 'port.price1')}</p>
+        
+        <div class="text-center text-[12px] mx-auto mt-4">
+          <div class="grid grid-cols-4 gap-4">
+            <p>Years</p>
+            <p>Initial Capital</p>
+            <p>Profit</p>
+            <p>Future Value</p>
+            
+            {item.rows.map((row) => (
+              <>
+                <p>{row.year}</p>
+                <p>{row.initialCapital}</p>
+                <p>{row.profit}</p>
+                <p>{row.futureValue}</p>
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-20 w-full flex justify-center text-[#0E1B4D]">
+    <Link
+      class="flex justify-center text-3xl items-center border border-[#0E1B4D] text-[#0E1B4D] rounded-xl hover:bg-[#0E1B4D] hover:text-white w-auto"
+      href="https://qq-capital-fund---dashboard.web.app/multi-portfolio-calculator"
+      target="_blank"
+      rel="noopener noreferrer"
+    > {t('proj.subtitle')}
+    </Link>
+  </div>
+</div>
+
+
+
