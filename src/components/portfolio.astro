@@ -52,14 +52,14 @@ const portfolios = [
 ---
 
 <div id="portfolios-anchor" style="position: relative; top: -100px; visibility: hidden;"></div>
-<div class="min-h-screen relative flex flex-col">
-  <div id="portfolios" class="mt-[5%] flex justify-center items-center flex-col">
+<div class="relative flex flex-col">
+  <div id="portfolios" class="mt-[1%] flex justify-center items-center flex-col">
     <h2 class="text-center text-4xl lg:text-5xl font-medium text-[#0E1B4D] lg:tracking-tight">
       {t('port.title')}
     </h2>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mt-20">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 xl:gap-16 mt-20">
     {portfolios.map((item, index) => (
       <div class={`flex flex-col gap-4 p-8 max-w-xl mx-auto rounded-3xl text-white text-center ${index % 2 === 0 ? 'bg-[#0d2ca6]' : 'bg-[#222222]'}`}>
         <h3 class="text-5xl">{item.title}</h3>
@@ -83,7 +83,7 @@ const portfolios = [
     ))}
   </div>
 
-  <div class="flex flex-col text-center text-[#0E1B4D] text-3xl mt-20">
+  <!-- <div class="flex flex-col text-center text-[#0E1B4D] text-3xl mt-20">
     <p>
       {t('canRead')}
     </p>
@@ -101,6 +101,6 @@ const portfolios = [
         d="M19 9l-7 7-7-7"
       />
     </svg>
-  </div>
+  </div> -->
 </div>
 
