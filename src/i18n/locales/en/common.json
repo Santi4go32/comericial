@@ -9,7 +9,8 @@
     
     "hero.title": "Turn your savings into a\ngreat investment",
     "hero.description": "Discover the story and the numbers that back us up. Watch our video or download the presentation for a quick and complete introduction.",
-    "hero.description2": "",
+    "hero.description2": "At QQ Capital Fund, we transform your objectives into solid and personalized investment strategies. We focus on offering solutions that not only protect your capital, but also make it grow through a combination of human talent, advanced technology and a global vision of the financial markets. Our experience and focus on innovation allow us to anticipate market opportunities and risks, so that you can invest with confidence and effectiveness.",
+    "hero.welcome": "Welcome to our website",
     "hero.button": "Watch video",
 
     "feat.title": "Why choose us?",
@@ -78,6 +79,11 @@
     "proj.gr.invested": "Invested Capital\n$20,000.00",
     "proj.gr.profit": "Profit\n$46,430.13",
 
+    "proj.years": "Years",
+    "proj.init": "Initial Capital",
+    "proj.profit": "Profit",
+    "proj.future": "Future Value",
+
     "faq.title": "Have questions? We have answers!",
     "faq.subtitle1": "What documents do I need to invest?",
     "faq.description1": "Three documents in addition to the contract: ID from your country of tax residence, proof of residential address, and a W-8 or W-9 form depending on your country. Your advisor will guide you through this process.",
@@ -101,6 +107,9 @@
     "contact.error": "An error occurred. Please try again.",
 
     "footer": "All rights reserved",
+    "footer.address": "Addresses",
+    "footer.getInTouch": "Get in touch",
+    "footer.contactus": "Contact us",
 
     "virtual.title": "Ready to take your finances to the next level?",
     "virtual.subtitle": "Our artificial intelligence technology acts as your personal financial advisor, recommending the best investment options tailored to your goals and profile.",

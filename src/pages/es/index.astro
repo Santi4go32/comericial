@@ -8,18 +8,16 @@ import Layout from "@layouts/Layout.astro";
 import Projection from "@components/projection.astro";
 import Faq from "@components/faq.astro";
 import Picker from "@components/floats/picker.astro";
-import ChatIA from "@components/floats/chatIA.astro";
+import ChatAI from "@components/floats/chatAI.astro";
 ---
 
 <Layout title="">
+  <ChatAI />
+  <Hero />
+  <Features />
   <Container>
     <Picker />
-    <ChatIA />
-    <Hero />
-    <Features />
-    <Cta />
     <Portfolio />
     <Projection />
-    <Faq />
   </Container>
 </Layout>

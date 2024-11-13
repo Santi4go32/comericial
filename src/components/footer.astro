@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro:assets";
+import marker from "assets/marker.png";
 import mockup from "assets/mockup.png";
 import dashboard from "assets/dashboard.png";
 import Link from "@components/ui/link.astro";
@@ -15,10 +16,21 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
 ---
 
 <footer id="registro" class="grid place-items-center relative min-h-screen bg-[#222222] mt-[5%]">
-  <section class="main_banner w-full relative min-h-[500px] h-full"></section>
+  <section class="main_banner w-full relative min-h-[500px] h-full">
+    <div class="w-full lg:px-12 xl:px-64 justify-center lg:justify-start h-full flex items-center">
+      <div class="flex flex-col items-center text-center w-auto max-w-screen-xl">
+        <p id="address" class="text-2xl lg:text-3xl font-medium whitespace-pre-line text-white">191 Peachtree Rd NE 14th floor<br>Atlanta, GA 30303</p>
+        <Picture
+          src={marker}
+          alt="marker"
+          class="h-18 w-12"
+        />
+      </div>
+    </div>
+  </section>
 
-  <div class="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-[-225px] lg:-translate-y-1/2">
-    <h1 class="text-5xl text-white font-medium text-center text-[#0E1B4D]">Contact Us</h1>
+  <div class="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform xl:-translate-x-[-225px] lg:-translate-y-1/2">
+    <h1 class="text-5xl text-white font-medium text-center text-[#0E1B4D]">{t('footer.contactus')}</h1>
     <form id="registrationForm" class="mt-8 max-w-sm mx-auto bg-white pl-8 pr-20 py-20 rounded-3xl text-[#0E1B4D]">
       <div class="mb-6">
         <label for="name" class="block text-sm mb-2"></label>
@@ -47,9 +59,9 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
     </form>
   </div>
 
-  <section class="grid grid-cols-1 md:grid-cols-3 text-start py-4 space-y-2 lg:space-y-0 px-4 w-full text-white max-w-screen-xl lg:h-[220px]">
+  <section class="grid grid-cols-1 md:grid-cols-3 text-start py-4 space-y-2 lg:space-y-0 px-4 w-full text-white max-w-screen-xl lg:h-[400px]">
     <div class="w-full h-full flex flex-col justify-center">
-      <h1 class="mb-5 lg:mb-10 text-2xl font-medium">Other addresses</h1>
+      <h1 class="mb-5 lg:mb-10 text-2xl font-medium">{t('footer.address')}</h1>
       <ul>
         <li>
           80 Broad St
@@ -59,14 +71,24 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
           111 E Monument Ave UNIT 601
           Kissimmee, FL 34741
         </li>
+        <li class="mt-5">
+          3350 SW 148th Ave Ste#110
+          Miramar, FL 33027
+        </li>
+        <li class="mt-5">
+          John Hancock Center, 875 N Michigan Ave 31st floor, Chicago, IL 60611
+        </li>
+        <li class="mt-5">
+          191 Peachtree Rd NE 14th floor, Atlanta, GA 30303
+        </li>
       </ul>
     </div>
-    <div class="w-full h-full flex flex-col justify-center lg:items-center">
+    <div class="w-full h-full flex flex-col justify-start lg:items-center">
       <div class="text-left">
-        <h1 class="mb-3 lg:mb-10 mt-4 text-2xl font-medium">Get in Touch</h1>
-        <p class="mb-3"><i class="fa fa-phone mr-2" style="transform: rotate(90deg);"></i>+1 (844) 844-0121</p>
-        <p class="mb-3"><i class="fa fa-phone mr-2" style="transform: rotate(90deg);"></i>+1 (407) 686-5061</p>
-        <p class="mb-3"><i class="fa fa-envelope mr-2"></i>info@qqcapitalfund.com</p>
+        <h1 class="mb-3 lg:mb-10 mt-[36px] text-2xl font-medium">{t('footer.getInTouch')}</h1>
+        <p class="mb-5"><i class="fa fa-phone mr-2" style="transform: rotate(90deg);"></i>+1 (844) 844-0121</p>
+        <p class="mb-5"><i class="fa fa-phone mr-2" style="transform: rotate(90deg);"></i>+1 (407) 686-5061</p>
+        <p class="mb-5"><i class="fa fa-envelope mr-2"></i>info@qqcapitalfund.com</p>
       </div>
     </div>
 
@@ -93,7 +115,7 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
 
 <style>
   .main_banner {
-    background-image: url("https://as1.ftcdn.net/v2/jpg/04/46/61/86/1000_F_446618660_FfPJdWIZkRopmf95fXZgvlvZa9mMasSK.jpg");
+    background-image: url("https://res.cloudinary.com/dsfgyzics/image/upload/v1731535144/1921-668-max_hmtnx4.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -140,6 +162,28 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
     <button type="submit" class="floating-button bg-[#034bd9] text-white px-4 py-2 rounded-full hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-600 w-64">{t('contact.button')}</button>
   </div>
 </form> -->
+
+<script>
+  const addresses = [
+      "80 Broad St, New York, NY 10004, EE. UU",
+      "111 E Monument Ave, Kissimmee, FL 34741",
+      "3350 SW 148th Ave Suite 110\nMiramar, FL 33027\nEstados Unidos",
+      "John Hancock Center\n875 N Michigan Ave 31st floor\nChicago, IL 60611",
+      "191 Peachtree Rd NE 14th floor, Atlanta, GA 30303"
+  ];
+
+  let currentIndex = 0;
+
+  function updateAddress() {
+      const addressElement = document.getElementById("address");
+      if (addressElement) {
+        addressElement.innerHTML = addresses[currentIndex].replace(", ", "<br>");
+      }
+      currentIndex = (currentIndex + 1) % addresses.length;
+  }
+
+  setInterval(updateAddress, 3000);
+</script>
 
 <script>
   import { useTranslation } from "i18n/utils";
