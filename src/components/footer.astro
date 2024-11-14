@@ -29,7 +29,7 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
     </div>
   </section>
 
-  <div class="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform xl:-translate-x-[-225px] lg:-translate-y-1/2">
+  <div class="lg:absolute lg:top-1/2 lg:left-1/2 trx lg:transform xl:-translate-x-[-225px] lg:-translate-y-1/2">
     <h1 class="text-5xl text-white font-medium text-center text-[#0E1B4D]">{t('footer.contactus')}</h1>
     <form id="registrationForm" class="mt-8 max-w-sm mx-auto bg-white pl-8 pr-20 py-20 rounded-3xl text-[#0E1B4D]">
       <div class="mb-6">
@@ -133,6 +133,18 @@ const downloadUrl = lang === "en" ? "https://qqcapitalfund.com/wp-content/upload
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+
+  @media (min-width:1140px) and (max-width: 1280px) {
+    .trx {
+      margin-left: 15%;
+    }
+  }
+
+  @media (min-width:1025px) and (max-width: 1139px) {
+    .trx {
+      margin-left: 10%;
+    }
   }
 </style>
 
