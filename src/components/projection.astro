@@ -17,8 +17,8 @@ const portfolios = [
     profit: "proj.sr.profit",
     compouding: "proj.compouding",
     rows: [
-      { year: 1, initialCapital: "$5,000.00", profit: "$549.00", futureValue: "$5,549.00" },
-      { year: 2, initialCapital: "$5,549.00", profit: "$609.28", futureValue: "$6,158.28" },
+      { year: 1, initialCapital: "$20,000.00", profit: "$2,196.00", futureValue: "$22,196.00" },
+      { year: 2, initialCapital: "$22,196.00", profit: "$2,437.12", futureValue: "$24,633.12" },
       { year: "", initialCapital: "", profit: "", futureValue: "(10.98%)" }
     ]
   },
@@ -30,9 +30,9 @@ const portfolios = [
     profit: "proj.cl.profit",
     compouding: "proj.compouding",
     rows: [
-      { year: 1, initialCapital: "$10,000.00", profit: "$1,760.00", futureValue: "$11,760.00" },
-      { year: 2, initialCapital: "$11,760.00", profit: "$2,069.76", futureValue: "$13,829.76" },
-      { year: 3, initialCapital: "$13,829.76", profit: "$2,434.04", futureValue: "$16,263.80" },
+      { year: 1, initialCapital: "$30,000.00", profit: "$5,280.00", futureValue: "$35,280.00" },
+      { year: 2, initialCapital: "$35,280.00", profit: "$6,209.28", futureValue: "$41,489.28" },
+      { year: 3, initialCapital: "$41,489.28", profit: "$7,302.11", futureValue: "$48,791.39" },
       { year: "", initialCapital: "", profit: "", futureValue: "(17.6%)" }
     ]
   },
@@ -44,10 +44,10 @@ const portfolios = [
     profit: "proj.gr.profit",
     compouding: "proj.compouding",
     rows: [
-      { year: 1, initialCapital: "$20,000.00", profit: "$7,000.00", futureValue: "$27,000.00" },
-      { year: 2, initialCapital: "$27,000.00", profit: "$9,450.00", futureValue: "$36,450.00" },
-      { year: 3, initialCapital: "$36,450.00", profit: "$12,757.50", futureValue: "$49,207.50" },
-      { year: 4, initialCapital: "$49,207.50", profit: "$17,222.63", futureValue: "$66,430.13" },
+      { year: 1, initialCapital: "$50,000.00", profit: "$17,500.00", futureValue: "$67,500.00" },
+      { year: 2, initialCapital: "$67,500.00", profit: "$23,625.00", futureValue: "$91,125.00" },
+      { year: 3, initialCapital: "$91,125.00", profit: "$31,893.75", futureValue: "$123,018.75" },
+      { year: 4, initialCapital: "$123,018.75", profit: "$43,056.56", futureValue:"$166,075.31" },
       { year: "", initialCapital: "", profit: "", futureValue: "(35%)" }
     ]
   },
@@ -59,7 +59,7 @@ const portfolios = [
 <div class="relative flex flex-col">
   <div id="portfolios" class="mt-[10%] flex justify-center items-center flex-col">
     <h2 class="text-center text-4xl lg:text-5xl font-medium text-[#0E1B4D] lg:tracking-tight">
-      {t('port.title')}
+      {t('proj.title')}
     </h2>
   </div>
 
@@ -69,7 +69,7 @@ const portfolios = [
         <h3 class="text-5xl">{item.title}</h3>
         <p class="text-3xl">{t(item.price as 'port.price1')}</p>
         
-        <div class="flex space-x-[70px]">
+        <div class="flex justify-center space-x-[70px]">
           <p class="whitespace-pre-line">{t(item.future as 'port.price1')}</p>
           <p class="whitespace-pre-line">{t(item.invested as 'port.price1')}</p>
         </div>

@@ -16,9 +16,13 @@ const portfolios = [
       "port.description1",
     benefits: [
       "port.rent1",
+      "port.rentValue1",
       "port.projection1",
+      "port.projectionValue1",
+      "port.risk1",
+      "port.riskValue1",
       "port.month1",
-      "port.risk1"
+      "port.monthValue1",
     ],
     path: "https://qqcapitalfund.com/portfolios/serenity/"
   },
@@ -29,9 +33,12 @@ const portfolios = [
       "port.description2",
     benefits: [
       "port.rent2",
+      "port.rentValue2",
       "port.projection2",
+      "port.projectionValue2",
+      "port.risk2",
+      "port.riskValue2",
       "port.month2",
-      "port.risk2"
     ],
     path: "https://qqcapitalfund.com/portfolios/classic/"
   },
@@ -42,9 +49,12 @@ const portfolios = [
       "port.description3",
     benefits: [
       "port.rent3",
+      "port.rentValue3",
       "port.projection3",
+      "port.projectionValue3",
+      "port.risk3",
+      "port.riskValue3",
       "port.month3",
-      "port.risk3"
     ],
     path: "https://qqcapitalfund.com/portfolios/grow/"
   }
@@ -67,17 +77,24 @@ const portfolios = [
         <p class="mt-4 text-lg leading-relaxed">{t(item.description as 'port.description1')}</p>
         
         <ul class="mt-4">
-          {item.benefits.map((benefit) => (
-            <p class="text-md mt-2">{t(benefit as 'port.rent1')}</p>
+          {item.benefits.map((benefit, i) => (
+            benefit.includes('Value') ? null : (
+            <li class={`text-md mt-2 text-start lg:text-center flex justify-between lg:justify-center`}>
+              <span>{t(benefit as 'port.rent1')}</span>
+              {item.benefits[i + 1] && item.benefits[i + 1].includes('Value') ? (
+                <span class="font-bold ml-2">{t(item.benefits[i + 1] as 'port.rentValue1')}</span>
+              ) : null}
+            </li>
+            )
           ))}
         </ul>
         
         <div class="mt-4 w-auto flex justify-center">
-            <Link
-              class="flex justify-center text-sm items-center border border-white text-white rounded-xl hover:bg-blue-950 w-auto"
-              href={item.path}
-            > {t('port.button')}
-            </Link>
+          <Link
+            class="flex justify-center text-sm items-center border border-white text-white rounded-xl hover:bg-blue-950 w-auto"
+            href={item.path}
+          > {t('port.button')}
+          </Link>
         </div>
       </div>
     ))}

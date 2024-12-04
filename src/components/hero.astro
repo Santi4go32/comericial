@@ -6,11 +6,10 @@ import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 import Navbar from "@components/navbar/navbar.astro";
 
-import { getLangFromUrl,useTranslation } from "i18n/utils";
+import { getLangFromUrl, useTranslation } from "i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslation(lang);
-
 ---
 
 <main class="grid place-items-center relative min-h-screen">
@@ -21,37 +20,40 @@ const t = useTranslation(lang);
 
     <div class="text-center text-white py-10 px-4 w-full z-[8] relative">
       <h1 class="text-3xl md:text-4xl font-medium whitespace-pre-line">
-        {t('hero.title')}
+        {t("hero.title")}
       </h1>
       <p class="mt-14 text-lg max-w-3xl mx-auto">
-        {t('hero.description')}
+        {t("hero.description")}
       </p>
-      <div class="mt-10 flex justify-center">
-        <Link
-          size="lg"
-          rel="noopener noreferrer"
-          href="https://drive.google.com/file/d/18RxR-VIvxDqghuYkLG_21fvB2sEwixfM/preview"
-          class="inline-flex items-center justify-center bg-[#0E1B4D] h-auto rounded-xl hover:bg-gray-500 hover:border-[#0E1B4D] hover:text-[#0E1B4D] text-white"
-          target="_blank">
-          {t('hero.button')}
-        </Link>
-      </div>
+      {
+        lang === "es" && (
+          <div class="mt-10 flex justify-center">
+            <Link
+              size="lg"
+              rel="noopener noreferrer"
+              href="https://drive.google.com/file/d/18RxR-VIvxDqghuYkLG_21fvB2sEwixfM/preview"
+              class="inline-flex items-center justify-center bg-[#0E1B4D] h-auto rounded-xl hover:bg-gray-500 hover:border-[#0E1B4D] hover:text-[#0E1B4D] text-white"
+              target="_blank">
+              {t("hero.button")}
+            </Link>
+          </div>
+        )
+      }
     </div>
   </section>
 
   <section class="bg-white text-center py-4 px-4 w-full text-[#0E1B4D]">
     <h2 class="text-3xl font-medium">
-      {t('hero.welcome')}
+      {t("hero.welcome")}
     </h2>
     <p class="mt-4 text-slate-600 max-w-xl mx-auto">
-      {t('hero.description2')}
+      {t("hero.description2")}
     </p>
     <!-- <button class="mt-2 inline-flex items-center justify-center border border-[#0E1B4D] hover:bg-[#0E1B4D] hover:text-white rounded-xl py-3 px-6">
       Read more
     </button> -->
   </section>
 </main>
-
 
 <style>
   .main_banner {
@@ -70,8 +72,4 @@ const t = useTranslation(lang);
     bottom: 0;
     background-color: rgba(2, 26, 86, 0.6);
   }
-
-  
 </style>
-
-
